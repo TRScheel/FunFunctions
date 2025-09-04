@@ -14,7 +14,9 @@ function flipText(s) {
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&._!?,;:()[]{}<>\"'`^\\/";
   const to =
     "ɐqɔpǝɟɓɥıɾʞןɯuodbɹsʇnʌʍxʎz∀𐐒ƆᗡƎℲ⅁HIſʞ˥WNOԀὉᴚS┴∩ΛMXʎZ0ƖᄅƐㄣϛ9ㄥ86⅋˙¡¿'؛ː)(][}{><„‚,ʇ/^\\";
-  const map = Object.fromEntries([...from].map((c, i) => [c, to[i] || c]));
+  const FROM = [...from];
+  const TO = [...to];
+  const map = Object.fromEntries(FROM.map((c, i) => [c, TO[i]]));
   return [...s]
     .reverse()
     .map((ch) => map[ch] ?? map[ch.toLowerCase()] ?? ch)
