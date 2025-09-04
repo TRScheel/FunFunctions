@@ -1,12 +1,13 @@
-export default function handler(req, res) {
+// api/flip.js
+module.exports = (req, res) => {
   const q = (req.query.q ?? "").toString().trim();
   const text = q
     ? "\t(ノ ゜Д゜)ノ ︵ " + flipText(q)
     : "Usage: !fliptext <text>";
-  const out = text.length > 350 ? text.slice(0, 350) : text; // Nightbot-safe length
+  const out = text.length > 350 ? text.slice(0, 350) : text;
   res.setHeader("Content-Type", "text/plain; charset=utf-8");
   res.status(200).send(out);
-}
+};
 
 function flipText(s) {
   const from =
